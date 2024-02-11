@@ -1,67 +1,15 @@
-# SSSF week 2 exercise. Submit to Oma
+Testit:
+![test2](https://github.com/Kaspaaro/W2/assets/114400605/890e75fc-1619-4582-86b0-691403f7248c)
 
-Convert the REST API from last weeks assignment to use MongoDB and Mongoose
 
-## Getting started
+PostMan:
 
-- Clone this repo
-- create .env based on .env.example
-- `npm i` to install dependencies
-- `npm run dev` to start development server
-- `npm run test` to run tests
+GET USERS
+![image](https://github.com/Kaspaaro/W2/assets/114400605/5750305d-453c-4d0c-9924-6f4c4a29d6ce)
 
-## Assignment
+POST USERS
+![image](https://github.com/Kaspaaro/W2/assets/114400605/38586f33-1807-4ace-8e1c-31f37635d0eb)
 
-- Your task is to complete all TODOs in the code until all tests are passed
+GET CAT (tyhjä koska testit deletoi kissan, mutta menee läpi OK 200)
+![image](https://github.com/Kaspaaro/W2/assets/114400605/a9fdf442-821e-4b8b-bda6-87862efdc421)
 
-## Database
-
-- Create the Schemas based on the JSON examples below
-
-Cat:
-
-```json
-{
-  "_id",
-  "cat_name": "Siiri",
-  "weight": 4,
-  "filename": "9434b5b5d9222ed366d22ebcc8e5c828",
-  "birthdate": "2010-03-04",
-  "coords": {
-    "type": "Point",
-    "coordinates" : [
-      61.5,
-      24.7
-    ]
-  }
-  "owner": {
-    "_id": 37,
-    "user_name": "Test User",
-    "email": "a@b.fi"
-  }
-}
-```
-
-User:
-
-```json
-{
-  "_id": 37,
-  "user_name": "Test User", // this is not username, just firsname lastname
-  "email": "john@metropolia.fi", // shoud be unique
-  "role": "user", // or "admin" // don't send this
-  "password": "1234" // don't send this
-}
-```
-
-## Routes
-
-- /auth
-- /users
-- /cats
-
-# Important
-
-- login users email as username
-- create admin manually to user collection: admin@metropolia.fi, password: 1234
-- Always empty your cats after tests, so that you dont have user_ids that are not in users collection
