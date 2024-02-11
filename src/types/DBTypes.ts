@@ -1,5 +1,4 @@
 import {Document, Types} from 'mongoose';
-import {Point} from 'geojson';
 
 type User = Partial<Document> & {
   _id: Types.ObjectId | string;
@@ -24,7 +23,10 @@ type Cat = Partial<Document> & {
   owner: Types.ObjectId | User;
   filename: string;
   birthdate: Date;
-  location: Point;
+  location: {
+    type: string;
+    coordinates: [string, string];
+  };
 };
 
 type CatTest = Partial<Cat>;

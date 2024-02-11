@@ -1,7 +1,8 @@
-import {UserOutput} from './DBTypes';
+import {Cat, UserOutput} from './DBTypes';
 
 type MessageResponse = {
   message: string;
+  data: {};
 };
 
 type ErrorResponse = MessageResponse & {

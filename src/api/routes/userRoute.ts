@@ -10,7 +10,6 @@ import {
 import {authenticate} from '../../middlewares';
 
 const router = express.Router();
-
 router
   .route('/')
   .get(userListGet)
@@ -19,7 +18,6 @@ router
   .delete(authenticate, userDeleteCurrent);
 
 router.get('/token', authenticate, checkToken);
-
 router.route('/:id').get(userGet);
 
 export default router;

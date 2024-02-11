@@ -6,7 +6,7 @@ import {ErrorResponse} from './types/MessageTypes';
 import CustomError from './classes/CustomError';
 import jwt from 'jsonwebtoken';
 import {UserOutput} from './types/DBTypes';
-import userModel from './api/models/userModel';
+import {userModel} from './api/models/userModel';
 
 // convert GPS coordinates to decimal format
 // for longitude, send exifData.gps.GPSLongitude, exifData.gps.GPSLongitudeRef
@@ -32,6 +32,7 @@ const errorHandler = (
   res.json({
     message: err.message,
     stack: process.env.NODE_ENV === 'production' ? '🥞' : err.stack,
+    data: err,
   });
 };
 

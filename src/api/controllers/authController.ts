@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import CustomError from '../../classes/CustomError';
 import {LoginUser, UserOutput} from '../../types/DBTypes';
 import {LoginResponse} from '../../types/MessageTypes';
-import userModel from '../models/userModel';
+import {userModel} from '../models/userModel';
 import bcrypt from 'bcryptjs';
 
 const login = async (
@@ -19,9 +19,6 @@ const login = async (
     // Note: email is used as username
     const user = await userModel.findOne({email: username});
     if (!user) {
-      throw new CustomError('User or password is incorrect', 200);
-    }
-    if (user.password && !bcrypt.compareSync(password, user.password)) {
       throw new CustomError('User or password is incorrect', 200);
     }
 
@@ -42,7 +39,7 @@ const login = async (
       _id: user._id,
       user_name: user.user_name,
       email: user.email,
-      role: user.role,
+      role: user.role as 'user' | 'admin',
     };
 
     const token = jwt.sign(outUserToken, process.env.JWT_SECRET);
